@@ -5,7 +5,7 @@ const logger = require('morgan');
 // Setting up port
 const PORT = process.env.PORT || 8080;
 
-// Files
+// DB configuration
 const connectDB = require('./config/db');
 
 // Creating express app and configuring middleware
@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Requiring api and html routes
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
+require("./routes/html-routes.js")(app);
+// require("./routes/api-routes")(app); 
 
 // Connect to MongoDB
 connectDB();
