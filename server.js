@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Requiring api and html routes
-require("./routes/html-routes.js")(app);
-// require("./routes/api-routes")(app); 
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app); 
 
 // Connect to MongoDB
 connectDB();
