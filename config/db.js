@@ -3,7 +3,7 @@ const config = require('./config');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(config.db.uri, {
+    await mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/workout", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
