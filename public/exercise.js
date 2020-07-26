@@ -95,6 +95,10 @@ function validateInputs() {
   }
 }
 
+const capitalize = string => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -103,6 +107,8 @@ async function handleFormSubmit(event) {
   if (workoutType === "cardio") {
     workoutData.type = "cardio";
     workoutData.name = cardioNameInput.value.trim();
+    workoutData.name = capitalize(workoutData.name);
+    console.log(workoutData.name);
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
   } else if (workoutType === "resistance") {
