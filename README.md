@@ -12,7 +12,7 @@
 
 [License](#license)
 
-[Contributing](#contributing)
+[Contributions](#contributions)
 
 [Testing](#testing)
 
@@ -35,7 +35,7 @@ The application can be used at https://blooming-crag-03924.herokuapp.com/. Users
 ## License:
 <img src="https://img.shields.io/github/license/phillidp1989/Workout-Tracker?logoColor=%23C2CAE8">
 
-## Contributing:
+## Contributions:
 No contributions
 
 ## Testing:
