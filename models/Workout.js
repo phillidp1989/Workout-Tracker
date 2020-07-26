@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
+// Instantiate new instance of Mongoose schema object
 const Schema = mongoose.Schema;
+// Options to save virtuals
 const opts = {toJSON: {virtuals: true}};
 
+// Creation of workoutSchema
 const workoutSchema = new Schema ({
     day: {
         type: Date,
@@ -40,6 +43,7 @@ const workoutSchema = new Schema ({
     ]
 }, opts);
 
+// Model method to create workouts collection in MongoDB using the workoutSchema to structure the data
 const Workout = mongoose.model('Workout', workoutSchema);
 
 // Addition of a virtual property which is not stored in MongoDB to hold the total exercise duration

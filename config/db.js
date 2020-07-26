@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const config = require('./config');
+
+// Function to connect to DB (hosted through Heroku or local DB) using Mongoose
 
 const connectDB = async () => {
   try {

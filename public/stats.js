@@ -188,6 +188,7 @@ function populateChart(data) {
   });
 }
 
+// New function to retrieve the total duration created using a virtual
 const sumDuration = (data) => {
   let durations = [];
   data.forEach((workout) => {
@@ -199,7 +200,7 @@ const sumDuration = (data) => {
 const duration = (data) => {
   let durations = [];
   let exerciseName = [];
-
+// Only unique exercises are added to the durations array and multiple instances of an exercise have their durations summed
   data.forEach((workout) => {
     workout.exercises.forEach((exercise) => {
       if (exerciseName.includes(exercise.name)) {
@@ -215,6 +216,7 @@ const duration = (data) => {
   return durations;
 };
 
+// Function amended so that only resistance exercises are shown as cardio exercises have no weight data
 function calculateTotalWeight(data) {
   let total = [];
   data.forEach((workout) => {
@@ -229,7 +231,7 @@ function calculateTotalWeight(data) {
   return total;
 }
 
-//calculates totalweight over the 7 workouts grouped by categories
+//Calculates totalweight over the 7 workouts grouped by exercise
 function calculateTotalWeightCategory(data) {
   let total = [];
   let names = [];
@@ -251,6 +253,7 @@ function calculateTotalWeightCategory(data) {
   return total;
 }
 
+// New function to retrieve all exercises with type of resistance for use on the weight aggregation chart
 function resistanceNames(data) {
   let workouts = [];
 
@@ -266,6 +269,7 @@ function resistanceNames(data) {
   return workouts;
 }
 
+// Amended function to ensure no exercises are duplicated (durations totalled in above function)
 function workoutNames(data) {
   let workouts = [];
 
