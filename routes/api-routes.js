@@ -1,6 +1,8 @@
 const db = require("../models");
 
 module.exports = (app) => {
+
+  // Get request to retrieve all workouts in DB
   app.get("/api/workouts", async (req, res) => {
     try {
       const results = await db.Workout.find({});      
@@ -11,12 +13,12 @@ module.exports = (app) => {
     }
   });
 
+  // Put request to update exercise information in specific workout identified using req.params.id
   app.put("/api/workouts/:id", async (req, res) => {
     try {      
       const result = await db.Workout.findByIdAndUpdate(req.params.id, {
         $push: { exercises: req.body },
-      });
-      console.log(result);
+      });      
       res.json(result);
     } catch (err) {
       console.error("ERROR - api-routes.js - /api/workouts/:id put: ", err);
@@ -24,6 +26,7 @@ module.exports = (app) => {
     }
   });
 
+  // Post request to create new workout in DB
   app.post("/api/workouts", async (req, res) => {
     try {      
       const result = await db.Workout.create(req.body);      
@@ -34,6 +37,7 @@ module.exports = (app) => {
     }
   });
 
+  // Get request to retrieve last 7 workouts from the DB
   app.get("/api/workouts/range", async (req, res) => {
     try {      
       const results = await db.Workout.find({}, {}, { sort: { _id : 1 } }).limit(7);      
